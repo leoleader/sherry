@@ -1,0 +1,44 @@
+{% extends 'dependencies.html' %}
+ 
+{% block content %}
+
+<style>
+    h1 {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        font: 42px "Trocchi", serif;
+    }
+
+    .b1 {
+        background-color: #1abc9c;
+    }
+
+    .center {
+        margin: auto;
+        width: 40%;
+    }
+
+    body { background: #1abc9c !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+
+</style>
+
+ 
+<div class="container text-center center">
+        
+    <div class="card-columns" style="padding: 10px;">
+        <div class="card" allign="center " style="width: 32rem; border:5px black solid">
+            <div class="card-body">
+                <h5 class="card-title">You got: {{title}}</h5>
+ 
+                <p class="card-text">{{blurb}}</p>
+                <h5>Thanks for Playing!</h5>
+                <p>
+                {% load static %} <video autoplay width="400" height="300" loop muted
+                src="{% static "mysite/silly_cat.mp4" %}" alt="cat" >
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

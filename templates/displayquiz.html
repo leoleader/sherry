@@ -1,0 +1,68 @@
+{% extends 'dependencies.html' %}
+ 
+{% block content %}
+{% load static %}
+
+<style>
+    h1 {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        font: 42px "Trocchi", serif;
+    }
+
+    .b1 {
+        background-color: #1abc9c;
+    }
+
+    body { background: #1abc9c !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+
+</style>
+
+<div class="p-3 mb-2 bg-primary text-white"></div>
+
+<form method='post' action=''>
+    {% csrf_token %}
+ 
+    <div class="container text-center b1">
+        <h1> {{quiz.title}} </h1>
+        {% for q  in questions%}
+        <div class="form-group">
+        <h4> {{q.question}}</h4>
+        </div>
+        <div class="form-check">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="option1" checked>
+                <label class="form-check-label" for="gridRadios1">
+                    {{q.op1}}
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                    {{q.op2}}
+                </label>
+            </div>
+            {% if q.op3 != None %}
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="option3">
+                <label class="form-check-label" for="gridRadios1">
+                    {{q.op3}}
+                </label>
+            </div>
+            {% endif %}
+            {% if q.op4 != None %}
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="option4">
+                <label class="form-check-label" for="gridRadios2">
+                    {{q.op4}}
+                </label>
+            </div>
+            {% endif %}
+            <br>
+        </div>    
+        {% endfor %}
+    <br>
+    <button type="submit" class="btn btn-primary ">Submit</button>
+</div>
+ 
+{% endblock %}

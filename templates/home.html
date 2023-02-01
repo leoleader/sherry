@@ -1,0 +1,70 @@
+{% extends 'dependencies.html' %}
+ 
+{% block content %}
+{% load static %}
+
+<head>
+  <style>
+  .bg-1 {
+    background-color: #000000; /* Green */
+    color: #1abc9c;
+    font: 20px "Lato", sans-serif;
+  }
+  h1 {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        font: 42px "Trocchi", serif;
+        color: #1abc9c;
+    }
+  h2 {
+        padding-top: 25px;
+        padding-bottom: 10px;
+        font: 32px "Trocchi", serif;
+        color: #ffffff;
+  }
+  a {
+    color: #000000;
+  }
+    
+  </style>
+</head>
+
+<body>
+  <style>
+    .bg-2 {
+      background-color: #1abc9c; /* Green */
+      color: #000000;
+      font: 20px "Lato", sans-serif;
+    }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</body>
+
+<div class="container text-center h1">
+  <h1>Welcome to Sherry's Quizzes</h1>
+</div>
+
+
+<div class="container bg-2 text-center">
+ 
+ <form method='post' action=''>
+    {% csrf_token %}
+
+    <h2 class="my-4">Play a quiz or make your own!</h2>
+          <div class="row">
+            {% for m in quizzes %}
+            <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
+              <div class="card h-100 p-4">
+                <h3><a href="{% url 'displayQuiz' m.id %}">{{m.title}}</a></h3>
+                {% if m.cover != "" %}
+                  <img src="{{ m.cover.url}}" alt="{{ m.title }}">
+                {% endif %}
+                <p>{{m.blurb}}</p>
+              </div>
+            </div>
+            {% empty %}
+            <p>No quizzes added.</p>
+            {% endfor %}
+          </div>
+</div>
+{% endblock %}

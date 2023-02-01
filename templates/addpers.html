@@ -1,0 +1,32 @@
+{% extends 'dependencies.html' %}
+ 
+{% block content %}
+ 
+<div class="jumbotron container row">
+    <div class="col-md-6">
+        <h1>Add Question</h1>
+        <div class="card card-body">
+           <form action="" method="POST" autocomplete="off">
+            {% csrf_token %}
+            <ul>
+                Personality: <br>
+                Title:<input id="title" type="text" name="title" value="" /> <br>
+                Blurb:<input id="blurb" type="text" name="blurb" value="" /> <br>
+                <input type="submit" name="addpersonality" value="Add this Personality" />
+            </ul>
+            </form>
+            <form action="" method="POST" autocomplete="off">
+                {% csrf_token %}
+            <ul>
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Submit">
+                <a href="{% url 'home' %}">Finish Quiz</a>
+
+            </ul>
+            </form>
+        </div>
+    </div>
+</div>
+ 
+{% endblock %}
