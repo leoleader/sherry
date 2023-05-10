@@ -19,8 +19,41 @@
                 {% csrf_token %}
             <ul>
                 {% csrf_token %}
-                {{form.as_p}}
-                <input type="submit" value="Submit">
+                Question:<input id="question" type="text" name="question" value="" /> <br>
+                Option1:<input id="option1" type="text" name="op1" value="" /> <br>
+                Option2:<input id="option2" type="text" name="op2" value="" /> <br>
+                Option3:<input id="option3" type="text" name="op3" value="" /> <br>
+                Option4:<input id="option4" type="text" name="op4" value="" /> <br>
+
+                <label for="ans1">Select an attribute for option1:</label>
+                <select id="answer1" name="ans1">
+                {% for p in personalities %} 
+                <option value= "{{ p.title }}">{{p.title}}</option>
+                {% endfor %}
+                </select>
+
+                <label for="ans2">Select an attribute for option2:</label>
+                <select id="answer2" name="ans2">
+                {% for p in personalities %} 
+                <option value= "{{ p.title }}">{{p.title}}</option>
+                {% endfor %}
+                </select>
+
+                <label for="ans3">Select an attribute for option3:</label>
+                <select id="answer3" name="ans3">
+                {% for p in personalities %} 
+                <option value= "{{ p.title }}">{{p.title}}</option>
+                {% endfor %}
+                </select>
+
+                <label for="ans4">Select an attribute for option4:</label>
+                <select id="answer4" name="ans4">
+                {% for p in personalities %} 
+                <option value= "{{ p.title }}">{{p.title}}</option>
+                {% endfor %}
+                </select>
+
+                <input type="submit" name="addquestion" value="Submit">
                 <a href="{% url 'home' %}">Finish Quiz</a>
 
             </ul>

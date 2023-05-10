@@ -61,19 +61,21 @@ def displayQuiz(request, quiz_id):
             personalitys = Personality.objects.filter(quiz_id = quiz_id)
             totaler = {}
             for i in personalitys:
-                totaler[i] = 0
+                totaler[i.title] = 0
             for q in questions:
-                if (request.POST.get(q.question) == "option1"):
+                answered_pers = request.POST.get(q.question)
+                if answered_pers == "option1":
                     totaler[q.ans1] += 1
-                if (request.POST.get(q.question) == "option2"):
+                elif answered_pers == "option2":
                     totaler[q.ans2] += 1
-                if (request.POST.get(q.question) == "option3"):
+                elif answered_pers == "option3":
                     totaler[q.ans3] += 1
-                if (request.POST.get(q.question) == "option4"):
+                else:
                     totaler[q.ans4] += 1
             final = max(totaler, key = totaler.get)
-            title = final.title
-            blurb = final.blurb
+            final_pers = Personality.objects.get(title = final, quiz_id = quiz_id)
+            title = final_pers.title
+            blurb = final_pers.blurb
             context = {
                 'final':final,
                 'title':title,
@@ -107,7 +109,8 @@ def addQuestion(request, quiz_id):
                     m = form.save(commit=False)
                     m.quiz = quiz
                     m.save()
-                    context={'form':formy, 'quiz_id':quiz_id}
+                    personalities = Personality.objects.filter(quiz_id = quiz_id)
+                    context={'form':formy, 'quiz_id':quiz_id, 'personalities':personalities}
                     return render(request,'addPers.html', context)
                 elif 'addquestion' in request.POST:
                     print("bruh")
@@ -116,7 +119,8 @@ def addQuestion(request, quiz_id):
                     m = form.save(commit=False)
                     m.quiz = quiz
                     m.save()
-                    context={'form':form, 'quiz_id':quiz_id}
+                    personalities = Personality.objects.filter(quiz_id = quiz_id)
+                    context={'form':addPersform(), 'quiz_id':quiz_id, 'personalities':personalities}
                     return render(request,'addPers.html', context)
             else:
                 form=addPersform()

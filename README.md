@@ -45,7 +45,6 @@ and overall specifications
 
 NEED TO DO:
     Ability to edit quizzes
-    Ability to actually add questions to personality quizzes (also get rid of autocomplete personalities)
 
     
 

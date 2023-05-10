@@ -22,6 +22,7 @@ class QuizModel(models.Model):
 
     def __str__(self):
         return self.title
+    
 
 class QuesModel(models.Model):
     question = models.CharField(max_length=200,null=True)
@@ -53,13 +54,14 @@ class PersModel(models.Model):
     op4 = models.CharField(max_length=200,null=True, blank=True, default='')
     quiz = models.ForeignKey(QuizModel, on_delete = models.CASCADE)
 
-    ans1 = models.ForeignKey(Personality, on_delete = models.CASCADE, related_name="ans1", )
-    ans2 = models.ForeignKey(Personality, on_delete = models.CASCADE, related_name="ans2")
-    ans3 = models.ForeignKey(Personality, on_delete = models.CASCADE, related_name="ans3", null = True, blank=True)
-    ans4 = models.ForeignKey(Personality, on_delete = models.CASCADE, related_name="ans4", null = True, blank=True)
+    ans1 = models.CharField(max_length=200,null=True)
+    ans2 = models.CharField(max_length=200,null=True)
+    ans3 = models.CharField(max_length=200,null=True, blank=True, default='')
+    ans4 = models.CharField(max_length=200,null=True, blank=True, default='')
     
     def __str__(self):
         return self.question
+    
 
 
 class UserProfile(models.Model):
