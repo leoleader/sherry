@@ -30,7 +30,8 @@ class QuesModel(models.Model):
     op2 = models.CharField(max_length=200,null=True)
     op3 = models.CharField(max_length=200,null=True, blank=True, default='')
     op4 = models.CharField(max_length=200,null=True, blank=True, default='')
-    ans = models.CharField(max_length=200,null=True)
+    ANSWER_CHOICES = [('option1', 'op1'), ('option2', 'op2'), ('option3', 'op3'), ('option4', 'op4')]
+    ans = models.CharField(choices=ANSWER_CHOICES, max_length=200,null=True)
 
     quiz = models.ForeignKey(QuizModel, on_delete = models.CASCADE)
     

@@ -2,12 +2,23 @@ from django.forms import ModelForm
 from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django import forms
 
 ## new user form
 class createuserform(UserCreationForm):
+
+    email = forms.EmailField(required=True)
+    
     class Meta:
         model=User
-        fields=['username','password'] 
+        fields=['username', 'email'] 
+    
+    def save(self, commit=True):
+        user = super(createuserform, self).save(commit=False)
+        user.email = self.cleaned_data['email']
+        if commit:
+            user.save()
+        return user
 
 ## class for adding a quiz question
 class addQuestionform(ModelForm):

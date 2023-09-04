@@ -12,12 +12,21 @@
            <form action="" method="POST" autocomplete="off">
             {% csrf_token %}
             <ul>
-                Question:<input id="question" type="text" name="question" value="" /> <br>
-                Option1:<input id="option1" type="text" name="op1" value="" /> <br>
-                Option2:<input id="option2" type="text" name="op2" value="" /> <br>
-                Option3:<input id="option3" type="text" name="op3" value="" /> <br>
-                Option4:<input id="option4" type="text" name="op4" value="" /> <br>
-                Answer:<input id="quesModel_ans" type="text" name="ans" value="" />
+                Question: <input id="question" type="text" name="question" value="" /> <br>
+                Option 1: <input id="option1" type="text" name="op1" value="" /> <br>
+                Option 2: <input id="option2" type="text" name="op2" value="" /> <br>
+                Option 3: <input id="option3" type="text" name="op3" value="" /> <br>
+                Option 4: <input id="option4" type="text" name="op4" value="" /> <br>
+                Answer: <br>
+                <input type="radio" id="radio1" name="ans" value="option1">
+                <label for="radio1">Option 1</label><br>
+                <input type="radio" id="radio2" name="ans" value="option2">
+                <label for="css">Option 2</label><br>
+                <input type="radio" id="radio3" name="ans" value="option3">
+                <label for="radio3">Option 3</label><br>
+                <input type="radio" id="radio4" name="ans" value="option4">
+                <label for="radio4">Option 4</label><br>
+
                 <input type="submit" value="Save and Add Question" /> <br>
                 <a href="{% url 'home' %}">Finish Quiz</a>
             </ul>

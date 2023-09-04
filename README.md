@@ -44,7 +44,23 @@ and overall specifications
 
 
 NEED TO DO:
-    Ability to edit quizzes
+    Home Page:
+        - Ability to Search for specific quizzes
+        - Update graphic design lol
+    Quiz Page:
+        - Update graphic design lol
+    Quiz Result Page:
+        - Replace cat gif
+        - Add share results / share quiz button
+        - Update graphic design lol
+    My Quizzes:
+        - Ability to Edit/Delete Quizzes
+    My Profile:
+        - Literally doesn't even exist yet
+    Add Question:
+        - Need to fix answer field
+            - Currently unclear that need to type option1/option2 ect.
+        
 
     
 

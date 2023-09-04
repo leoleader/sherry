@@ -3,6 +3,7 @@ from django.contrib.auth import login,logout,authenticate
 from .forms import *
 from .models import *
 from django.http import HttpResponse
+from django.contrib import messages
  
 # Create your views here.
 def home(request):
@@ -95,9 +96,11 @@ def addQuestion(request, quiz_id):
         if quiz.quiz_type == "knowledge":
             if(request.method=='POST'):
                 form = addQuestionform(request.POST)
-                m = form.save(commit=False)
-                m.quiz = quiz
-                m.save()
+                print(form)
+                if form.is_valid():
+                    m = form.save(commit=False)
+                    m.quiz = quiz
+                    m.save()
             return render(request,'addQuestion.html', context)
         else:
             if(request.method=='POST'):
@@ -151,13 +154,15 @@ def addQuiz(request):
 def registerPage(request):
     if request.user.is_authenticated:
         return redirect('home') 
-    else: 
+    else:
         form = createuserform()
         if request.method=='POST':
             form = createuserform(request.POST)
             if form.is_valid() :
-                user=form.save()
-                return redirect('login')
+                user = form.save()
+                login(request, user)
+                messages.success(request, "Registration successful." )
+                return redirect("/")
         context={
             'form':form,
         }
