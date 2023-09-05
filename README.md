@@ -1,16 +1,18 @@
-Quiz Building/Taking Web App developed using Django with sqlite3 db, hosted by Heroku. 
+Welcome!
+Sherry's Quizzes is a Quiz Building/Taking Web App I developed using Django with sqlite3 db, hosted on Heroku. 
+Go to the site and take a quiz, or register for an account and make your own quizzes!
 
-Production To Do List:
-    - Try to make user uploaded images and static files work with sqlite3 db
+NOTE:
+    - Need to migrate from sqlite3 db to postgre for production, until then user uploaded quizzes and images will not work
 
-Dev To Do List:
-    Search Results Page:
-        - Make it look better
+Features To Do List:
     Quiz Result Page:
         - Add share results / share quiz button
     My Quizzes:
         - Ability to Edit/Delete Quizzes
     My Profile:
+        - Make it look better
+    Search Results Page:
         - Make it look better
     
 
