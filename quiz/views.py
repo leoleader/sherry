@@ -103,7 +103,7 @@ def addQuestion(request, quiz_id):
                     m = form.save(commit=False)
                     m.quiz = quiz
                     m.save()
-            return render(request,'addQuestion.html', context)
+            return render(request,'addquestion.html', context)
         else:
             if(request.method=='POST'):
                 print(request.POST)
@@ -116,7 +116,7 @@ def addQuestion(request, quiz_id):
                     m.save()
                     personalities = Personality.objects.filter(quiz_id = quiz_id)
                     context={'form':formy, 'quiz_id':quiz_id, 'personalities':personalities}
-                    return render(request,'addPers.html', context)
+                    return render(request,'addpers.html', context)
                 elif 'addquestion' in request.POST:
                     print("bruh")
                     form = addPersform(request.POST)
@@ -126,12 +126,12 @@ def addQuestion(request, quiz_id):
                     m.save()
                     personalities = Personality.objects.filter(quiz_id = quiz_id)
                     context={'form':addPersform(), 'quiz_id':quiz_id, 'personalities':personalities}
-                    return render(request,'addPers.html', context)
+                    return render(request,'addpers.html', context)
             else:
                 form=addPersform()
                 context={'form':form, 'quiz_id':quiz_id}
-                return render(request,'addPers.html', context)
-            return render(request,'addPers.html')
+                return render(request,'addpers.html', context)
+            return render(request,'addpers.html')
     else: 
         return redirect('home') 
 
@@ -147,9 +147,9 @@ def addQuiz(request):
                 print('checkmark')
                 print(m.cover)
                 m.save()
-                return redirect('/addQuestions/' +str(m.id))
+                return redirect('/addquestions/' +str(m.id))
         context={'form':form, 'creator':request.user}
-        return render(request,'addQuiz.html',context)
+        return render(request,'addquiz.html',context)
     else: 
         return redirect('home') 
 
