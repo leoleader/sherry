@@ -130,8 +130,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 STATICFILES_DIRS = (
-  os.path.join(BASE_DIR, 'static/'),
 )
+
+print(os.path.join(BASE_DIR, 'static/'))
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'uploads'

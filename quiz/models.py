@@ -6,7 +6,7 @@ from django.contrib.auth.models import *
 class QuizModel(models.Model):
     title = models.CharField(max_length = 100, null = True)
     blurb = models.CharField(max_length = 600, null = True)
-    cover = models.ImageField(upload_to='images/', null=True, blank=True, default='images/quiz-photo.jpeg')
+    cover = models.ImageField(upload_to='static/', null=True, blank=True, default='static/quiz-photo.jpeg')
 
     knowledge = "knowledge"
     personality = "personality"
