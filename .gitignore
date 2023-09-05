@@ -1,7 +1,6 @@
 # DB
 backup-dbs/
 media/
-images/
 
 # Javascript
 node_modules/
