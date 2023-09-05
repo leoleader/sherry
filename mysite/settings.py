@@ -133,7 +133,7 @@ if not DEBUG:
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 STATICFILES_DIRS = (
-  os.path.join(BASE_DIR, 'static/'),
+  os.path.join(PROJECT_ROOT, 'static/'),
 )
 
 MEDIA_URL = '/media/'
