@@ -44,7 +44,7 @@ and overall specifications
 
 
 NEED TO DO:
-    Home Page:
+    Search Results Page:
         - Ability to Search for specific quizzes
     Quiz Result Page:
         - Add share results / share quiz button
@@ -53,7 +53,7 @@ NEED TO DO:
     My Profile:
         - Figure out what to do with this
     
-    Graphic Design Overhaul Needed
+    Graphic Design Overhaul Needed lowkey
     
         
 
