@@ -10,20 +10,20 @@
             {% csrf_token %}
             <ul>
                 Personality: <br>
-                Title:<input id="title" type="text" name="title" value="" /> <br>
-                Blurb:<input id="blurb" type="text" name="blurb" value="" /> <br>
-                <input type="submit" name="addpersonality" value="Add this Personality" />
+                Title: <input id="title" type="text" name="title" value="" /> <br>
+                Blurb: <input id="blurb" type="text" name="blurb" value="" /> <br>
+                <input type="submit" name="addpersonality" value="Add this Personality" /> <br>
             </ul>
             </form>
             <form action="" method="POST" autocomplete="off">
                 {% csrf_token %}
             <ul>
                 {% csrf_token %}
-                Question:<input id="question" type="text" name="question" value="" /> <br>
-                Option1:<input id="option1" type="text" name="op1" value="" /> <br>
-                Option2:<input id="option2" type="text" name="op2" value="" /> <br>
-                Option3:<input id="option3" type="text" name="op3" value="" /> <br>
-                Option4:<input id="option4" type="text" name="op4" value="" /> <br>
+                Question: <input id="question" type="text" name="question" value="" /> <br>
+                Option1: <input id="option1" type="text" name="op1" value="" /> <br>
+                Option2: <input id="option2" type="text" name="op2" value="" /> <br>
+                Option3: <input id="option3" type="text" name="op3" value="" /> <br>
+                Option4: <input id="option4" type="text" name="op4" value="" /> <br>
 
                 <label for="ans1">Select an attribute for option1:</label>
                 <select id="answer1" name="ans1">

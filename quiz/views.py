@@ -4,6 +4,8 @@ from .forms import *
 from .models import *
 from django.http import HttpResponse
 from django.contrib import messages
+from django.views.generic import ListView
+from django.db.models import Q
  
 # Create your views here.
 def home(request):
@@ -194,3 +196,24 @@ def myquizzes(request):
         }
         return render(request, 'myquizzes.html', context)
     else: return redirect('home')
+
+def myprofile(request):
+    if request.user.is_authenticated:
+        userdata = User.objects.get(username = request.user)
+        print(userdata)
+        profile =UserProfile.objects.filter(user = request.user)
+        context = {
+                'userdata':userdata,
+                'profile': profile
+        }
+        return render(request, 'myprofile.html', context)
+    else: return redirect('home')
+
+class searchresultsview(ListView):
+    model = QuizModel
+    template_name = 'searchresults.html'
+    def get_queryset(self):
+        query = self.request.GET.get("searchy")
+        return QuizModel.objects.filter(
+            Q(title__icontains=query)
+        )

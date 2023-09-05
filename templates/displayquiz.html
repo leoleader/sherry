@@ -8,25 +8,31 @@
         padding-top: 25px;
         padding-bottom: 25px;
         font: 42px "Trocchi", serif;
+        background-color: lightpink;
     }
 
     .b1 {
-        background-color: #1abc9c;
+        margin-top: 40px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        padding-left: 40px;
+        padding-right: 40px;
+        background-color: #04AA6D;
     }
 
-    body { background: #1abc9c !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
 
 </style>
-
-<div class="p-3 mb-2 bg-primary text-white"></div>
 
 <form method='post' action=''>
     {% csrf_token %}
  
     <div class="container text-center b1">
         <h1> {{quiz.title}} </h1>
+        {% if quiz.cover != "" %}
+            <img style="padding-top: 10px; max-width: 600px; max-height: 400px;"src="{{ quiz.cover.url}}" alt="{{ quiz.title }}">
+        {% endif %}
         {% for q  in questions%}
-        <div class="form-group">
+        <div class="form-group" style="padding-top: 20px">
         <h4> {{q.question}}</h4>
         </div>
         <div class="form-check">

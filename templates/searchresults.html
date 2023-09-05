@@ -1,0 +1,17 @@
+<h1>Search Results</h1>
+
+<ul>
+    {% for m in object_list %}
+    <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
+      <div class="card h-100 p-4">
+        <h3><a href="{% url 'displayQuiz' m.id %}">{{m.title}}</a></h3>
+        {% if m.cover != "" %}
+          <img src="{{ m.cover.url}}" alt="{{ m.title }}">
+        {% endif %}
+        <p>{{m.blurb}}</p>
+      </div>
+    </div>
+    {% empty %}
+    <p>No quizzes matching this search exist :/ sorry!</p>
+    {% endfor %}
+</ul>

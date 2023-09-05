@@ -25,11 +25,12 @@ urlpatterns = [
     path('addQuiz/', addQuiz, name='addQuiz'),
     path('addQuestions/<int:quiz_id>/', addQuestion, name='addQuestion'),
     path("<int:quiz_id>/", displayQuiz, name="displayQuiz"),
-
+    path("myprofile/", myprofile, name="myprofile"),
     path('myquizzes/', myquizzes, name='myquizzes'),
     path('login/', loginPage, name='login'),
     path('logout/', logoutPage, name='logout'),
     path('register/', registerPage, name='register'),
+    path("search/", searchresultsview.as_view(), name="search_results"),
     path('admin/', admin.site.urls),
  
 ]
