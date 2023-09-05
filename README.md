@@ -1,12 +1,25 @@
-This is the documentation for the quiz web app.
+Quiz Building/Taking Web App developed using Django with sqlite3 db, hosted by Heroku. 
+
+Production To Do List:
+    - Try to make user uploaded images and static files work with sqlite3 db
+
+Dev To Do List:
+    Search Results Page:
+        - Make it look better
+    Quiz Result Page:
+        - Add share results / share quiz button
+    My Quizzes:
+        - Ability to Edit/Delete Quizzes
+    My Profile:
+        - Make it look better
+    
 
 
+This is some documentation from development:
 
 so home page displays quiz blurbs, should lead you to new page with quizid when click on each quiz. 
 get to quiz and it displays each question with the corresponding quizid and at the end there is a submit button
 which leads to the results tab. 
-
-
 
 GOALS:
 - User ability to add questions to their quizzes
@@ -42,18 +55,6 @@ Then over the weekend I add it to my resume/github and update my personal websit
 Im gonna leave the user uploaded images for their own kinda section of dev time because I have to be careful with the storage
 and overall specifications
 
-
-NEED TO DO:
-    Search Results Page:
-        - Ability to Search for specific quizzes
-    Quiz Result Page:
-        - Add share results / share quiz button
-    My Quizzes:
-        - Ability to Edit/Delete Quizzes
-    My Profile:
-        - Figure out what to do with this
-    
-    Graphic Design Overhaul Needed lowkey
     
         
 
