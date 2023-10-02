@@ -4,3 +4,4 @@ django_cleanup
 gunicorn
 dj-database-url 
 psycopg2
+whitenoise
