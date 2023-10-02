@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', home, name='home'),
     path('addQuiz/', addQuiz, name='addQuiz'),
-    path('addQuestions/<int:quiz_id>/', addQuestion, name='addQuestion'),
+    path('addquestions/<int:quiz_id>/', addQuestion, name='addQuestion'),
     path("<int:quiz_id>/", displayQuiz, name="displayQuiz"),
     path("myprofile/", myprofile, name="myprofile"),
     path('myquizzes/', myquizzes, name='myquizzes'),
